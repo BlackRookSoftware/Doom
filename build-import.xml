@@ -11,6 +11,7 @@
 	<property name="build.version" value="${build.version.number}-${build.version.appendix}" />
 
 	<property name="src.dir" value="src" />
+	<property name="examples.dir" value="examples" />
 	<property name="bin.dir" value="bin" />
 
 	<property name="build.dir" value="build" />
@@ -26,6 +27,18 @@
 	<property name="zip.filename" value="${project.archive}-${build.version}.zip" />
 	<property name="zip.sources.filename" value="${project.archive}-${build.version}-sources.zip" />
 	<property name="zip.javadoc.filename" value="${project.archive}-${build.version}-javadoc.zip" />
+	
+	<!-- Filesets -->
+	
+	<patternset id="pattern.documents">
+		<include name="README.*" />
+		<include name="READ.ME" />
+		<include name="docs/*.*" />
+	</patternset>
+	
+	<fileset id="fileset.documents" dir=".">
+		<patternset refid="pattern.documents" />
+	</fileset>
 	
 	<!-- Targets -->
 
@@ -115,7 +128,9 @@
 	<target name="zip.jar" depends="init.zip, jar.bin" description="Archives the JARs.">
 		<delete file="${zip.dir}/${zip.filename}" />
 		<zip basedir="${jar.dir}" destfile="${zip.dir}/${zip.filename}"></zip>
-		<zip basedir="docs" destfile="${zip.dir}/${zip.filename}" update="true"></zip>
+		<zip destfile="${zip.dir}/${zip.filename}" update="true"  >
+			<fileset refid="fileset.documents" />
+		</zip>
 	</target>
 
 	<target name="zip.docs" depends="init.zip, javadoc" description="Archives the documentation.">
@@ -126,7 +141,9 @@
 	<target name="zip.src" depends="init.zip" description="Archives the source code.">
 		<delete file="${zip.dir}/${zip.sources.filename}" />
 		<zip basedir="${src.dir}" destfile="${zip.dir}/${zip.sources.filename}" compress="true"></zip>
-		<zip basedir="docs" destfile="${zip.dir}/${zip.sources.filename}" update="true"></zip>
+		<zip destfile="${zip.dir}/${zip.filename}" update="true">
+			<fileset refid="fileset.documents" />
+		</zip>
 	</target>
 	
 	<target name="zip" depends="zip.jar, zip.docs, zip.src" description="Creates all archives.">

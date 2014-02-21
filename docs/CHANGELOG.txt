@@ -1,0 +1,194 @@
+Doom Struct (C) Black Rook Software, All rights reserved.
+
+Changed in 2.10.3
+=================
+
+- Changed: Source indentation style.
+
+
+Changed in 2.10.2
+=================
+
+- Added: Default constructor in TextureSet.
+
+Changed in 2.10.1
+=================
+
+- Changed/Fixed: Some documentation cleanup.
+
+Changed in 2.10.0
+=================
+
+- Now Requires: Common Lang 2.3.0.
+
+Changed in 2.9.1
+================
+
+- Added: DoomWad method createMarker(String) and all implementations.
+- Added: "PWADINFO" in the map lump special table in DoomUtilTables. 
+  Apparently, this is a lump added to maps created by the very obscure 
+  "Hellmaker" Doom map editor for older Macintosh computers.
+
+Changed in 2.9.0
+================
+
+- Added: DoomWad methods mapEntries(int, int), unmapEntries(int, 
+  DoomWadEntry[]), and setEntries(DoomWadEntry[]). Also added them to 
+  implementing classes.
+- Added: DoomMap.getMapContentIndices(DoomWad, String).
+- Changed: Bit of a breaking change: DoomMap.Type changed to DoomMap.Format.
+  Sorry, but now it's more clear, code-wise. Update your code! 
+
+Changed in 2.8.3
+================
+
+- Changed: Applied copyright clause to some files that didn't have it.
+- Added: DoomMap constructor (DoomWad, GameType, String) for known gametypes.
+- Fixed: In some cases, DoomUtil.intuitPortType(...) re-scanned for the game
+  type. Now it doesn't. 
+
+Changed in 2.8.2
+================
+
+- Added: DoomUtil.getEntriesInNamespace(String, Pattern, DoomWad) for scanning
+  entries in DoomWad namespaces.
+- Changed: Texture now implements Comparable<Texture>.
+- Added: TextureSet.sort() for sorting the underlying texture lumps.
+- Fixed: Animated.addTexture(...) added things to the right list, but didn't
+  flag the actual entry as a texture.
+
+Changed in 2.8.1
+================
+
+- Fixed: WadBuffer, WadMap would throw an IllegalArgumentException instead
+  of a WadException if it attempted to read a file/stream that was not a WAD 
+  file.
+
+Changed in 2.8.0
+================
+
+- Requires: Black Rook Commons 2.12.0
+- Fixed: Switches checked the wrong field for "on" texture name on export.
+- Fixed: Switches and Animated should skip check for blank names on export.
+- Added: WadMap, for reading WAD entries without needing to read data.
+- Added: TextureSet.getSequence(String, String).
+- Added: Animated.addTexture(String, String, int, boolean) for setting decal
+  permission.
+- Fixed: Animated.addTexture(...) did not add to the texture list.
+
+Changed in 2.7.1
+================
+
+- Added: DoomUtil.getSequenceNames(String, String).
+- Fixed: Animated did not handle the "decal" flag. 
+
+Changed in 2.7.0
+================
+
+- Requires: Commons 2.11.0
+- Changed: TextureLump and PatchNameLump now extend CaseInsensitiveMappedVector. 
+- Fixed: DoomWad.addAll(String[], byte[][]) didn't work. Now it does!
+
+Changed in 2.6.3
+================
+
+- Added: DoomWad.addAll(String[], byte[][]) for bulk addition of data.
+
+Changed in 2.6.2
+================
+
+- Added: DoomWad.replaceEntry(int, byte[]) for replacing WAD entry data.
+- Added: DoomWad.renameEntry(int, String) for renaming WAD entries.
+
+Changed in 2.6.1
+================
+
+- Fixed: Some "long" tic precision in Demo.Tic.
+- Added: Necessary getters to Demo.Tic.
+- Added: WadFile now implements Closeable.
+- Added: DoomPK3 now implements Closeable.
+
+Changed in 2.6.0
+================
+
+- Added: Demo, a class that encapsulates Doom automated DEMO data.
+- Added: SoundData, a class that holds digital sound data.
+- Added: DoomWad.addAt(String, int, byte[]) for adding entries at specific
+  indices. 
+- Changed: Made some methods in WadFile and WadBuffer private instead of 
+  protected. 
+- Removed: Vertex.callHexenCompatibilityCheck(), a call that was unnecessary.
+- Removed: A multitude of constructors for DoomMap that didn't need to exist.
+  Sorry, users. You're better off without them, anyway.
+- Changed: A lot of code tweaks and other things in DoomMap.
+- Changed: You can disable any and all export checks in DoomObjectUtils by
+  setting system property "com.blackrook.doom.DoomObjectUtils.disabled" to 
+  true. 
+
+Changed in 2.5.0
+================
+
+- Added: WadBuffer.writeToStream(OutputStream) and WadBuffer.writeToFile(File).
+- Fixed: Exception that occurred when opening a WAD with no entries.
+- Changed: Some additional changes to DoomMap and Animated to return Lists
+  and not AbstractVectors. Little end-user refactoring needs to occur, if any.
+- Added: WadBuffer.set/getType() for assigning/getting WAD type to/from the 
+  buffer.
+- Fixed: DoomMap.makeUDMFMap(...) was not reading information properly due to
+  an unresolved NullPointer bug.
+- Fixed: UDMFTable had an important data structure uninitialized in its 
+  constructor, meaning that this never worked! Boy, is my face red...
+- Fixed: DoomUtil.intuitGameType(DoomPK3 ...) looked in the wrong places for 
+  guessing via sector data. 
+- Special Thanks: Ed Cripps, whose spectacular map, "Putrefier," helped me
+  find all of these bugs!
+
+Changed in 2.4.0
+================
+
+- Changed: The refactoring to use the list package from the Commons project 
+  (2.8.0).
+
+Changed in 2.3.0
+================
+
+- Added: Additional ports to SourcePortTypes.
+- Changed: DoomUtil.intuitGameType(DoomWad/DoomPK3) to be even more accurate,
+  opting for a "heat map" or "closest match" type of identification rather
+  than a straight-up "it must be this" type of detection.
+- Changed: Major refactoring: all references to java.util.List changed to
+  Black Rook data structures.
+- Removed: All "since" tags in Javadocs that made reference to version 1 that
+  didn't need to be there at all.
+- Removed: Some inconsistent documentation in DoomMap regarding game type
+  intuition.
+- Fixed: Changed a call in DoomUtil.guessPortByMap() that attempted to guess
+  the game type over and over again per map. Eliminating this unnecessary 
+  call made everything faster.
+  
+
+Changed in 2.2.1
+================
+
+- Added: Added license text to some files that didn't have it.
+
+Changed in 2.2.0
+================
+
+- Added: *MAPS hashes to DoomUtil.
+- Changed: DoomUtil.intuitGameType(DoomWad/DoomPK3) to be more accurate.
+
+Changed in 2.1.1
+================
+
+- Added: DoomUtil.intuitPortType() works for PK3s now.
+- Added: DoomPK3.getData() and getDataAsStream().
+- Fixed: Boom Linedef types 270 and 271 changed to 271 and 272.
+
+Changed in 2.1.0
+================
+
+- Changed: intuitGame/PortType() returns the corresponding UNKNOWN enum values
+  instead of null if a match is not found.
+- Added: WadBuffer.
+- Changed: WadException now extends IOException.
