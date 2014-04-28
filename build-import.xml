@@ -24,9 +24,9 @@
 	<property name="jar.sources.filename" value="${project.archive}-${build.version}-sources.jar" />
 	<property name="jar.javadoc.filename" value="${project.archive}-${build.version}-javadoc.jar" />
 
-	<property name="zip.filename" value="${project.archive}-${build.version}.zip" />
-	<property name="zip.sources.filename" value="${project.archive}-${build.version}-sources.zip" />
-	<property name="zip.javadoc.filename" value="${project.archive}-${build.version}-javadoc.zip" />
+	<property name="zip.filename" value="${project.archive}-bin-${build.version}.zip" />
+	<property name="zip.sources.filename" value="${project.archive}-src-${build.version}.zip" />
+	<property name="zip.javadoc.filename" value="${project.archive}-javadocs-${build.version}.zip" />
 	
 	<!-- Filesets -->
 	
@@ -85,7 +85,7 @@
         	sourcepath="${src.dir}" 
         	packagenames="${project.javadoc.packages}"
         	destdir="${docs.dir}" 
-    		source="1.6" 
+    		source="1.7" 
         	splitindex="true" 
         	use="true" 
         	version="true" 
@@ -101,7 +101,7 @@
 	
 	<target name="compile" depends="init.compile" description="Compiles the project.">
 		<javac 
-			source="1.6"
+			source="1.7"
 			srcdir="${src.dir}" 
 			destdir="${bin.dir}"
             includeAntRuntime="false"
