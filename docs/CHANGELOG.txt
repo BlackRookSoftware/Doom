@@ -1,10 +1,14 @@
 Doom Struct (C) Black Rook Software, All rights reserved.
 
+Changed in 2.10.4
+=================
+
+- Added: TextureSet.sort(...) for sorting using a comparator.
+
 Changed in 2.10.3
 =================
 
 - Changed: Source indentation style.
-
 
 Changed in 2.10.2
 =================

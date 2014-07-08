@@ -9,6 +9,7 @@ package com.blackrook.doom.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Comparator;
 
 import com.blackrook.commons.Common;
 import com.blackrook.commons.comparators.CaseInsensitiveComparator;
@@ -267,6 +268,16 @@ public class TextureSet
 	{
 		for (TextureLump lump : textureLumps)
 			lump.sort();
+	}
+	
+	/**
+	 * Sorts the texture lumps in this set using a comparator.
+	 * @since 2.10.4
+	 */
+	public void sort(Comparator<Texture> comparator)
+	{
+		for (TextureLump lump : textureLumps)
+			lump.sort(comparator);
 	}
 	
 	/**
