@@ -166,8 +166,8 @@ public class UDMFStruct extends CaseInsensitiveHashMap<String>
 		if (s == null)
 			return def;
 		try {
-			if ((key.indexOf('x') >= 0) || (key.indexOf('X') >= 0))
-				return Integer.parseInt(key.substring(Math.max(key.indexOf('x'), key.indexOf('X')) + 1), 16);
+			if ((s.indexOf('x') >= 0) || (s.indexOf('X') >= 0))
+				return Integer.parseInt(s.substring(Math.max(s.indexOf('x'), s.indexOf('X')) + 1), 16);
 			else
 				return Integer.parseInt(s);
 		} catch (NumberFormatException e) {
@@ -190,8 +190,8 @@ public class UDMFStruct extends CaseInsensitiveHashMap<String>
 		if (s == null)
 			return def;
 		try {
-			if ((key.indexOf('x') >= 0) || (key.indexOf('X') >= 0))
-				return (float)Integer.parseInt(key.substring(Math.max(key.indexOf('x'), key.indexOf('X')) + 1), 16);
+			if ((s.indexOf('x') >= 0) || (s.indexOf('X') >= 0))
+				return (float)Integer.parseInt(s.substring(Math.max(s.indexOf('x'), s.indexOf('X')) + 1), 16);
 			else
 				return Float.parseFloat(s);
 		} catch (NumberFormatException e) {

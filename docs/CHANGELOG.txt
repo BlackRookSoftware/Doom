@@ -1,5 +1,11 @@
 Doom Struct (C) Black Rook Software, All rights reserved.
 
+Changed in 2.10.5
+=================
+
+- Fixed: UDMFStruct.getInt() and getFloat() incorrectly used the key instead of
+  the value for hexadecimal detection.
+
 Changed in 2.10.4
 =================
 
