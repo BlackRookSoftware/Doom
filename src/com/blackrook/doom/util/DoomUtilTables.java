@@ -5041,11 +5041,12 @@ public interface DoomUtilTables
 	}};
 	
 	public static final CaseInsensitiveHash 
-		ENDOOM_SPECIAL = new CaseInsensitiveHash(4) {{
+		ENDOOM_SPECIAL = new CaseInsensitiveHash(5) {{
 			put("endoom");
 			put("endboom");
 			put("endtext");
 			put("loading");
+			put("doomerr");
 	}};
 		
 	public static final CaseInsensitiveHash 
