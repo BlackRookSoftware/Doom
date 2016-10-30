@@ -4,6 +4,10 @@ Copyright (c) 2009-2014 Black Rook Software. All rights reserved.
 [http://blackrooksoftware.com/projects.htm?name=doom](http://blackrooksoftware.com/projects.htm?name=doom)  
 [https://github.com/BlackRookSoftware/Doom](https://github.com/BlackRookSoftware/Doom)
 
+## NOTICE: This project will NOT be actively updated. It will remain here for older programs.
+
+Go here for the active project: [https://github.com/MTrop/Doom](https://github.com/MTrop/Doom)
+
 ### Required Libraries
 
 Black Rook Commons 2.14.0+  
